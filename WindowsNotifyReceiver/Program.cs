@@ -42,13 +42,10 @@ internal static class Program
 
 internal sealed class MainForm : Form
 {
-    private readonly NotifyIcon tray;
-    private readonly Label status;
     private readonly Label last;
 
     public MainForm(NotifyIcon tray)
     {
-        this.tray = tray;
         Text = "手机通知同步";
         StartPosition = FormStartPosition.CenterScreen;
         Size = new Size(520, 360);
@@ -64,9 +61,9 @@ internal sealed class MainForm : Form
             Location = new Point(30, 25)
         };
 
-        status = new Label
+        var status = new Label
         {
-            Text = "● 电脑端正在监听",
+            Text = "● 电脑端正在监听 UDP 39555",
             Font = new Font("Microsoft YaHei UI", 12),
             AutoSize = true,
             Location = new Point(32, 78)
@@ -138,10 +135,10 @@ internal sealed class MainForm : Form
     {
         if (InvokeRequired) { BeginInvoke(() => ShowNotification(title, body)); return; }
         SetLast($"最近通知：{title}\n{body}");
-        using var popup = new PopupForm(title, body);
+        var popup = new PopupForm(title, body);
+        popup.FormClosed += (_, _) => popup.Dispose();
         popup.Show(this);
         popup.Activate();
-        Application.DoEvents();
         popup.WaitAndClose();
     }
 }
@@ -183,10 +180,7 @@ internal sealed class PopupForm : Form
         timer.Tick += (_, _) => Close();
     }
 
-    public void WaitAndClose()
-    {
-        timer.Start();
-    }
+    public void WaitAndClose() => timer.Start();
 
     protected override void OnFormClosed(FormClosedEventArgs e)
     {
