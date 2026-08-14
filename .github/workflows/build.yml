@@ -33,6 +33,8 @@ jobs:
         run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.7'
       - name: Generate Gradle wrapper
         working-directory: AndroidPhoneNotify
         run: gradle wrapper --gradle-version 8.7
