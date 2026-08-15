@@ -1,33 +1,22 @@
 # PhoneNotifySync
 
-小米15 → Windows 11 通知同步工具。
+小米15与Windows 11之间的个人通知同步工具。
 
-## 项目介绍
+## 项目说明
 
-个人使用的手机通知同步软件，用于 Android 手机与 Windows 11 电脑之间的通知联动。
+用于实现 Android 手机与 Windows 电脑之间的通知联动。
 
-## 技术方向
+## 技术栈
 
-### Android
-
+Android：
 - Kotlin
 - Jetpack Compose
-- HyperOS 兼容
-- 本地通知处理
-- 局域网通信
 
-### Windows
-
+Windows：
 - C#
 - WinUI 3
-- Windows 11 原生界面风格
-- 通知显示组件
 
-## 目录说明
+## 项目目录
 
-- AndroidPhoneNotify：Android 客户端
-- WindowsNotifyReceiver：Windows 客户端
-
-## 说明
-
-功能以仓库实际代码、编译结果和测试结果为准。
+- AndroidPhoneNotify：Android客户端
+- WindowsNotifyReceiver：Windows客户端
