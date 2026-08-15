@@ -1,24 +1,33 @@
 # PhoneNotifySync
 
-Android 手机通知 → Windows 电脑提示（个人简易版）
+小米15 → Windows 11 通知同步工具。
 
-- 同一 Wi‑Fi 使用
-- 手机只发送 App 名称，不发送通知正文
-- Windows 后台托盘运行
-- GitHub Actions 自动编译 APK 和 EXE
+目标：制作一个个人使用的 AirDrop 风格通知联动软件。
 
-## 下载
+## 开发计划
 
-打开仓库的 **Actions → Build PhoneNotifySync → Artifacts**，下载 `PhoneNotify-APK` 和 `PhoneNotify-Windows`。
+### Android 客户端
 
-## Android
+- Kotlin
+- Jetpack Compose
+- AccessibilityService 通知捕获方案
+- 小米 HyperOS 适配
+- WebSocket 加密通信
+- 设备配对
 
-安装 APK → 打开 App → 打开“通知访问权限” → 保持同步开启。
+### Windows 客户端
 
-## Windows
+- C# + WinUI 3
+- Windows 11 Fluent Design
+- 苹果风格通知卡片
+- 毛玻璃效果
+- 后台驻留
+- 安装程序
 
-解压 `PhoneNotify-Windows`，双击 `PhoneNotifyReceiver.exe`。
+## 状态
 
-首次 Windows 防火墙询问时允许专用网络。
-
-手机和电脑必须连接同一个 Wi‑Fi。
+- [x] 仓库初始化
+- [ ] Android 工程完善
+- [ ] Windows 工程完善
+- [ ] 通信测试
+- [ ] APK/EXE 发布
